@@ -55,11 +55,30 @@ def get_services(indexes):
       res.append({key: smap[k]})
   return res
 
+# support for legacy file based menus
+def legacy(services):
+  current_dir = os.path.dirname(os.path.abspath(__file__))
+  files = os.listdir(current_dir)
+  files.sort()
+  for file in files:
+    #file = files[1]
+    if not file.endswith(".json"):
+      continue
+    
+    entry = file.rsplit(".", maxsplit=1)[0].split("-", maxsplit=1)[-1]
+    if not entry in services:
+      services[entry] = []
+    dict = json.loads(Path(file).read_text())
+    for key in dict:
+      services[entry].append(key)
+    return services  
+      
 def main(args):
 
   actions = invoke("actions")
   indexes = get_indexes(actions)
   services = get_services(indexes)
+  services = legacy(services)
 
   username = args.get("OPSDEV_USERNAME", os.getenv("OPSDEV_USERNAME", ""))
   host = args.get("OPSDEV_HOST", os.getenv("OPSDEV_HOST", ""))
