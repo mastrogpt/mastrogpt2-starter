@@ -1,40 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link rel="modulepreload" href="/_app/immutable/entry/start.BLqlaOR5.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/mSe6CDUb.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/D-pOCGrB.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/DYinvJOT.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/DRGPvr98.js">
+		<link rel="modulepreload" href="/_app/immutable/entry/app.8b82AFdC.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/Bk0HBIAK.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/C7Sj3pvE.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/CdDPiiAq.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/BQO_n1VV.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/lawJfYCt.js">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+			<script>
+				{
+					__sveltekit_1anpn89 = {
+						base: ""
+					};
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pinocchio - Nuvolaris</title>
-    <style>
-        iframe {
-            position: absolute;
-            inset: 0;
-            border: none;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+					const element = document.currentScript.parentElement;
 
-    <script>
-        window.addEventListener('load', () => {
-            const target = document.getElementById("target")
-            fetch('/api/my/mastrogpt/index')
-                .then(response => response.json())
-                .then(data => {
-                    //console.log(data);
-                    const msg = {
-                        type: 'metadata',
-                        data: { namespace: data.username }
-                    };
-                    target.contentWindow.postMessage(msg, target.src)
-                });
-        });
-    </script>
-
-</head>
-
-<body>
-    <iframe id="target" src="https://pinocchio.openserverless.dev"></iframe>
-</body>
-
+					Promise.all([
+						import("/_app/immutable/entry/start.BLqlaOR5.js"),
+						import("/_app/immutable/entry/app.8b82AFdC.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element);
+					});
+				}
+			</script>
+		</div>
+	</body>
 </html>

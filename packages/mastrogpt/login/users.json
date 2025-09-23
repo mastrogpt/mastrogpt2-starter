@@ -1,4 +1,5 @@
 {
-  "pinocchio": "$2b$12$PQuqm7bIRnohRb0a9sfKE.AtyOPHLtpPcDnqP6tlWHGyi6k/YFBO.",
-  "msciab": "$2b$12$Zd/twpXT5AxaR5qRyhdrfOswQiyjRHOu.XbCONXHwXH5ygXcHbsYy"
+  "demo": "$2b$12$OM7FzHHVCaHPMPl0mr/tBOGAwrBeHl9zSzQuxU5LDcGKfZIEABtr.",
+  "admin": "$2b$12$VJJfsw06/LGL3vE9dnV0DeFzF6mCJH7OWMn3jBKjjIIjwReRn9msm",
+  "guest": "$2b$12$q1h4NzGJB/ATkM9MxgFPK.krSCZ37EM7WRkpIuilCBbPHoFSPMlU2"
 }

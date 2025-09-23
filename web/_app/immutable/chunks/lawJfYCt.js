@@ -1,0 +1,1 @@
+import{e as c,E as i,h as s,i as r,j as h,k as p,l as d}from"./D-pOCGrB.js";function m(t,f,o){r&&h();var n=t,a,e;c(()=>{a!==(a=f())&&(e&&(p(e),e=null),a&&(e=s(()=>o(n,a))))},i),r&&(n=d)}export{m as c};
