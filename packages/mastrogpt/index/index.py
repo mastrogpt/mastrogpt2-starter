@@ -71,7 +71,7 @@ def legacy(services):
     dict = json.loads(Path(file).read_text())
     for key in dict:
       services[entry].append(key)
-    return services  
+  return services  
       
 def main(args):
 
