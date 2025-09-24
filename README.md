@@ -1,6 +1,23 @@
-# Welcome to `mastrogpt-starter`
+# Welcome to `mastrogpt2-starter` - PLEASE READ THIS CAREFULLY
 
-This repository is the starter for the course **Developing Open LLM applications with Apache OpenServerless**, also known as **The MastroGPT course**.
+This repository is  an updated starter  for the course **Developing Open LLM applications with Apache OpenServerless**, also known as **The MastroGPT course** thar works also on local clusters (http://miniops.me), and custom  installations.
+
+There are 3 main differences:
+
+- You can clone and use it locally instead of running it in codespace, **but you have to start the devcontainer in vsccode**
+
+- You have to create a `.env` file in the project root with those values:
+
+```
+OLLAMA_HOST=<your ollama IP>
+AUTH=<password for ollama host IF ANY>
+```
+
+If you are using a local Ollama server on windows or mac put `host.docker.internal:11434`
+
+- You have to login in your server (`http://miniops.me`) **check carefully  if http or https, locally is is NOT https**
+
+- The UI is improved and slightly changed compared to the videos 
 
 ## Prerequisites
 
@@ -11,10 +28,8 @@ You can:
    - on [MastroGPT.com](https://mastrogpt.nuvolaris.dev) using our chatbot
    - on [Linkedin](https://linkedin.com/in/msciab) sending a private message 
    - on [Discord](https://bit.ly/openserverless-discord) (contact **Michele Sciabarra**)
-   - on [Reddit](https://reddit.com/r/openserverless) sending a private message to [msciabarra](https://reddit.com/u/msciabarra)
   
 - Self-host it [installing by yourself](https://openserverless.apache.org/docs/installation/)
-
 
 ## Launch a codespace with this starter
 
