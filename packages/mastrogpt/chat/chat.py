@@ -4,7 +4,9 @@ import socket, traceback, time
 def url(args, cmd):
   apihost = args.get("OLLAMA_API_HOST", os.getenv("OLLAMA_API_HOST", ""))
   if apihost == "":
-    raise ValueError("No OLLAMA_API_HOST set. Please use `ops env set OLLAMA_API_HOST <url>` to set it and redeploy.")
+    base = args.get("OLLAMA_HOST", os.getenv("OLLAMA_HOST", ""))
+    auth = args.get("AUTH", os.getenv("AUTH", ""))
+    apihost = "https://" + auth + "@" + base
   return f"{apihost}/api/{cmd}"
 
 def stream(args, lines, state=None):
