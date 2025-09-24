@@ -61,16 +61,21 @@ def legacy(services):
   files = os.listdir(current_dir)
   files.sort()
   for file in files:
-    #file = files[1]
+    # file = files[0]
     if not file.endswith(".json"):
       continue
     
     entry = file.rsplit(".", maxsplit=1)[0].split("-", maxsplit=1)[-1]
-    if not entry in services:
-      services[entry] = []
     dict = json.loads(Path(file).read_text())
-    for key in dict:
-      services[entry].append(key)
+    for service in services:
+      # service = services[0]
+      if entry in service:
+        for key in dict:
+          services[entry].append(key)
+        dict = None
+        break
+    if dict:
+      services.append({entry: dict})
   return services  
       
 def main(args):
