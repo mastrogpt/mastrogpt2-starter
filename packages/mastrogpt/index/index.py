@@ -71,10 +71,13 @@ def legacy(services):
       # service = services[0]
       if entry in service:
         for key in dict:
+          key["iframe"] = ""
           services[entry].append(key)
         dict = None
         break
     if dict:
+      for key in dict:
+        key["iframe"] = ""
       services.append({entry: dict})
   return services  
       
