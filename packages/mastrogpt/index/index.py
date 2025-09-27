@@ -64,12 +64,12 @@ def legacy(services):
     # file = files[1]
     if not file.endswith(".json"):
       continue
-    print(file)
+    #print(file)
     entry = file.rsplit(".", maxsplit=1)[0].split("-", maxsplit=1)[-1]
     dict = json.loads(Path(os.path.join(current_dir, file)).read_text())
     for service in services:
       # service = services[2]
-      print(service)
+      #print(service)
       if entry in service:
         for key in dict:
           key["iframe"] = ""
@@ -105,4 +105,5 @@ def main(args):
     "streamer": stream_host,
     "services": services
   }
+  
   return  res  
