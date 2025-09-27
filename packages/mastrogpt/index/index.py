@@ -61,18 +61,19 @@ def legacy(services):
   files = os.listdir(current_dir)
   files.sort()
   for file in files:
-    # file = files[0]
+    # file = files[1]
     if not file.endswith(".json"):
       continue
-    
+    print(file)
     entry = file.rsplit(".", maxsplit=1)[0].split("-", maxsplit=1)[-1]
-    dict = json.loads(Path(file).read_text())
+    dict = json.loads(Path(os.path.join(current_dir, file)).read_text())
     for service in services:
-      # service = services[0]
+      # service = services[2]
+      print(service)
       if entry in service:
         for key in dict:
           key["iframe"] = ""
-          services[entry].append(key)
+          service[entry].append(key)
         dict = None
         break
     if dict:
