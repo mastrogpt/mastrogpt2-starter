@@ -12,9 +12,6 @@
         "OPS_BRANCH": "main",
 		"REMOTE_CONTAINERS": "1"
     },
-	"runArgs": [
-    	"--network=host"
-    ],
 	"postCreateCommand": "ops -update ; ops -plugin https://github.com/mastrogpt/olaris-ai ; ops ai lesson",
 	"customizations": {
 		"vscode": {

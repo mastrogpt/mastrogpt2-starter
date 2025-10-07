@@ -3,6 +3,7 @@ services:
       image: sciabarracom/mastrogpt-starter:2501191200
       volumes:
         - ../..:/workspaces:cached
+      network_mode: host
       command: sleep inf
       depends_on:
         - redis
@@ -34,8 +35,8 @@ services:
           MINIO_ACCESS_KEY: minioadmin
           MINIO_SECRET_KEY: minioadmin
         ports:
-          - "9001:9001"
-          - "9000:9000"
+          - "19001:9001"
+          - "19000:9000"
         volumes:
           - minio:/minio_data
         command: minio server /minio_data --console-address ":9001"
@@ -50,8 +51,8 @@ services:
       volumes:
         - milvus:/var/lib/milvus
       ports:
-        - "19530:19530"
-        - "9091:9091"
+        - "19531:19530"
+        - "19091:9091"
       depends_on:
         - "etcd"
         - "minio"

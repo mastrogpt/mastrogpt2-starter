@@ -1,40 +1,84 @@
-# Welcome to `mastrogpt2-starter` - PLEASE READ THIS CAREFULLY
+# Welcome to `mastrogpt2-starter` 
+
+# PLEASE READ THIS CAREFULLY IF NOT USING `openserverless.dev`
 
 This repository is  an updated starter for the course **Developing Open LLM applications with Apache OpenServerless**, also known as **The MastroGPT course** thar works also on local clusters (http://miniops.me), and custom installations.
 
-There are 3 main differences:
+Note the UI is improved and slightly different compared to the videos.
 
-- You can clone and use it locally instead of running it in codespace, **but you have to start the devcontainer in vsccode**
+Read the follwign notes on:
+- using an alternative Ollama, even a local one
+- using your OpenServeress instance
+- run the environment locally instead of using codespaces.
 
-- You have to login in your server (`http://miniops.me`) **check carefully  if http or https, locally is is NOT https**
+If you use it locally, either for hosting or development you need docker. We do not provide information how to install, check on `https://www.docker.com`.
 
-- If you are NOT using an account on `openserverless.dev` account, you have to create a `.env` file in the project root with this value:
+## Using a local or alternative Ollama
+
+If you are NOT using an account on `openserverless.dev` but instead a local Ollama or a custom one, execute the `./configure.sh` script to set host, credentials and protocol.
+
+Example:
 
 ```
-OLLAMA_API_URL=<url to your ollama instance>
+$ ./configure.sh 
+$ ./configure.sh 
+=== MastroGPT Configuration ===
+
+Enter Ollama Host [default: host.docker.local:11434]: 
+Enter Ollama Auth [default: ignore:me]: 
+Enter Ollama Proto [default: http]: 
+
+Configuration summary:
+  OLLAMA_HOST: host.docker.local:11434
+  OLLAMA_AUTH: ignore:me
+  OLLAMA_PROTO: http
+
+Apply these settings? [y/N]: y
 ```
 
-where the url points to your instance.
+**Be careful that local Ollama are `http` while cloud Ollama are usually `https`**
 
-For example if you use your local ollama the value must be `http://host.docker.internal:11434`
+Once you have ollama you need to pull at least the following as they are used in the examples:
 
-- The UI is improved and slightly changed compared to the videos.
+```
+ollama pull mxbai-embed-large:latest
+ollama pull llama3.1:8b
+ollama pull mistral:7b
+ollama pull phi4:14b
+ollama pull llama3.2-vision:11b
+```
 
-## Prerequisites
+## Using a different instance than OpenServerless
 
-You need an up and running instance of [Apache OpenServerless](https://openserverless.apache.org) to deploy and run your code. 
+You can self host it either [installing by yourself](https://openserverless.apache.org/docs/installation/) in cloud, or install a local instance of OpenServerless (miniops).
+
+You can install quickly a local instance of OpenServerless if you have docker.
+
+You can do this with the following commands:
+
+1. Install `ops`
+  On Linux/Mac:  `curl -sL n7s.co/get-ops | bash`
+  On Windows: `powershell -c 'iex n7s.co/get-ops-exe
+
+**NOTE** If you use a different instance than `openserverless.dev`, you have to specify it in the login form. If you use a local instance, use `http://miniops.me` (note the `http`). 
+
+## Running the environment it locally
+
+You can clone the repo and start it and use it locally instead of running it in codespace.
+However when you open it with codespace **you have to start the devcontainer**
+
+You can also run the tools without VSCode but you have to start `ops ide devcontainer` to use a devcontainer without VSCode.
+
+## If you want to use OpenServerless.dev (no installation required)
 
 You can:
 -  Ask for a free development account on `openserverless.dev` courtesy of [Nuvolaris](http://nuvolaris.io). Contact us:
-   - on [MastroGPT.com](https://mastrogpt.nuvolaris.dev) using our chatbot
    - on [Linkedin](https://linkedin.com/in/msciab) sending a private message 
    - on [Discord](https://bit.ly/openserverless-discord) (contact **Michele Sciabarra**)
   
-- Self-host it [installing by yourself](https://openserverless.apache.org/docs/installation/)
-
 ## Launch a codespace with this starter
 
-First, go to `https://github.com/mastrogpt/` then select the pinned `mastrogpt-starter` repo (you should already be here):
+Once you have your openserverless instance,  go to `https://github.com/mastrogpt/` then select the pinned `mastrogpt2-starter` repo (you should already be here):
 
 ![](lessons/assets/starter.png)
 
@@ -47,7 +91,6 @@ It takes a bit to download images and starts.
 Wait until you see the "openserverless icon", then click on the  OpenServerless Icon and finally, click on Login and put your credentials, as follows:
 
 ![](lessons/assets/environment.png)
-
 
 # Overview
 
